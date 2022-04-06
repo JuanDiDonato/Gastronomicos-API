@@ -19,7 +19,7 @@ class Responses{
     /**
      * @description Retorna un estado 200 OK y un json con los datos que se le suministren
      * @param {*} res response
-     * @param {*} data menu
+     * @param {*} data datos a retornar
      */
     ok = (res,data) => {
         res.status(200).json(data);

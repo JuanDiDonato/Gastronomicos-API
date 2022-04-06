@@ -17,10 +17,10 @@ class MenusControllers extends ModelController{
      * @param {*} res response
      */
     createMenu(req,res){
-        const {foods} = req.body
-        if(Validations.isEmpty(foods)) responses.badRequest(res);
+        const {menu_name,foods} = req.body
+        if(Validations.isEmpty([menu_name,foods])) responses.badRequest(res);
         else{
-            this.Create(foods);
+            this.Create({foods,menu_name});
             responses.created(res);
         }
     }
@@ -41,11 +41,11 @@ class MenusControllers extends ModelController{
      * @param {*} res response
      */
     async updateMenu(req,res){
-        const {foods} = req.body;
+        const {menu_name,foods} = req.body;
         const {_id} = req.params;
-        if(Validations.isEmpty(foods)) responses.badRequest(res);
+        if(Validations.isEmpty([menu_name,foods])) responses.badRequest(res);
         else{
-            await this.FindByIdAndUpdate(_id,foods); 
+            await this.FindByIdAndUpdate(_id,{menu_name,foods}); 
             responses.okNotData(res);
         }
     }

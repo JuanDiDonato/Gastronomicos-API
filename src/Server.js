@@ -19,6 +19,7 @@ class Server{
     }
     Routes(){
         this.app.use("/api",require("./Routes/Menu"));
+        this.app.use("/api",require("./Routes/Statistics"));
     }
     Run(){
         this.app.listen(this.app.get("port"), () => {

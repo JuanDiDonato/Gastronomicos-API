@@ -8,17 +8,17 @@ class ModelController{
      * @description Guarda un dato en la base de datos
      * @param {*} data 
      */
-    Create(data){
-        const object = new this.model({"foods":data}); 
-        object.save();
+    async Create(data){
+        const object = new this.model(data); 
+        await object.save();
     }
     
     /**
      * @description Consulta una colleccion de la base de datos 
      * @returns Retorna todos los datos del modelo
      */
-    Find(){
-        return this.model.find();
+    async Find(){
+        return await this.model.find();
     }
 
     /**
@@ -36,7 +36,7 @@ class ModelController{
      * @param {*} data Nuevos datos que se cargaran al recurso obtenido
      */
     async FindByIdAndUpdate(_id,data){
-        await this.model.findOneAndUpdate({ _id}, {"foods":data});
+        await this.model.findOneAndUpdate({ _id}, data);
     }
 
     /**
