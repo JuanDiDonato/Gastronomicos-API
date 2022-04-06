@@ -10,7 +10,8 @@ class ModelController{
      */
     async Create(data){
         const object = new this.model(data); 
-        await object.save();
+        const result = await object.save()
+        return result._id.toString()
     }
     
     /**

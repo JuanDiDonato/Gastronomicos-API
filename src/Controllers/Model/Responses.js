@@ -17,6 +17,15 @@ class Responses{
     }
 
     /**
+     * @description Retorna un estado 201 y los datos que recibe
+     * @param {*} res response
+     * @param {*} data datos en retornar
+     */
+    createdAndBody = (res,data) => {
+        res.status(201).json(data);
+    }
+
+    /**
      * @description Retorna un estado 200 OK y un json con los datos que se le suministren
      * @param {*} res response
      * @param {*} data datos a retornar

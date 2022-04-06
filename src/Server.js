@@ -18,8 +18,7 @@ class Server{
         require("./Database/mongoDb");
     }
     Routes(){
-        this.app.use("/api",require("./Routes/Menu"));
-        this.app.use("/api",require("./Routes/Statistics"));
+        this.app.use("/api",require("./Routes/Menu"),require("./Routes/Statistics"),require("./Routes/Order"));
     }
     Run(){
         this.app.listen(this.app.get("port"), () => {

@@ -16,11 +16,11 @@ class StatisticControllers extends ModelController{
      * @param {*} req request
      * @param {*} res response
      */
-    CreateStatistic(req,res){
+    async CreateStatistic(req,res){
         const {sales,profits} = req.body;
         if(Validations.isEmpty([sales,profits])) responses.badRequest(res);
         else{
-            this.Create({sales,profits});
+            await this.Create({sales,profits});
             responses.okNotData(res);
         }
     }
